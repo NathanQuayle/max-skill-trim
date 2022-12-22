@@ -22,6 +22,6 @@ The purpose of this branch is to allow people to submit / download custom trims.
 
 ## Screenshots
 
-| Trim | Example |
-| ---- | ------- |
-|[Pinkish](custom-trims/pinkish/pinkish.png)|![Pinkish](custom-trims/pinkish/example.png)
+| Trim | Example | Trim | Example |
+| ---- | ------- | ---- | ------- |
+|[Pinkish](custom-trims/pinkish/pinkish.png)|![Pinkish](custom-trims/pinkish/example.png)|[Blue-purp-red](custom-trims/blue-purp-red/blue-purp-red.png.png)|![Blue-purp-red](custom-trims/blue-purp-red/example.png)
