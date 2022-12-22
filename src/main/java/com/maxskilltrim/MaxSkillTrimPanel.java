@@ -3,10 +3,12 @@ package com.maxskilltrim;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
+import net.runelite.client.util.LinkBrowser;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -30,20 +32,27 @@ public class MaxSkillTrimPanel extends PluginPanel {
         setBorder(new EmptyBorder(10, 10, 10, 10));
         setBackground(ColorScheme.DARK_GRAY_COLOR);
 
-        JButton openMaxSkillTrimFileFolderButton = new JButton("Open Folder");
-        openMaxSkillTrimFileFolderButton.addActionListener((ev) -> {
-            try {
-                Desktop.getDesktop().open(MaxSkillTrimPlugin.MAXSKILLTRIMS_DIR);
-            } catch(Exception ex) {
-                log.warn(null, ex);
-            }
-        });
+        JPanel buttonPanel = buildButtonPanel();
+        JPanel getMoreTrimsPanel = buildGetMoreTrimsPanel();
+        JPanel comboBoxPanel = buildComboBoxPanel();
 
-        JButton refreshMaxSkillTrims = new JButton("Refresh");
-        refreshMaxSkillTrims.addActionListener((ev) -> {
-            refreshComboBoxOptions();
-        });
+        layout.setHorizontalGroup(
+                layout.createParallelGroup()
+                    .addComponent(buttonPanel)
+                    .addComponent(getMoreTrimsPanel)
+                    .addComponent(comboBoxPanel)
+        );
 
+        layout.setVerticalGroup(layout.createSequentialGroup()
+            .addComponent(buttonPanel)
+            .addGap(10)
+            .addComponent(getMoreTrimsPanel)
+            .addGap(10)
+            .addComponent(comboBoxPanel)
+        );
+    }
+
+    private JPanel buildComboBoxPanel() {
         comboBox = new JComboBox<>();
         refreshComboBoxOptions();
 
@@ -58,27 +67,52 @@ public class MaxSkillTrimPanel extends PluginPanel {
             }
         });
 
-        JPanel comboBoxPanel = new JPanel();
-        comboBoxPanel.add(comboBox, BorderLayout.CENTER);
+        JLabel currentTrim = new JLabel("Current trim: ");
+        JPanel panel = new JPanel();
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(openMaxSkillTrimFileFolderButton);
-        buttonPanel.add(refreshMaxSkillTrims);
-        buttonPanel.setBorder(new CompoundBorder(
+        panel.add(currentTrim, GroupLayout.Alignment.BASELINE);
+        panel.add(comboBox, GroupLayout.Alignment.BASELINE);
+
+        return panel;
+    }
+
+    private JPanel buildGetMoreTrimsPanel() {
+        JButton getMoreTrimsButton = new JButton("Get more trims!");
+        getMoreTrimsButton.addActionListener((ev) -> LinkBrowser.browse("https://github.com/NathanQuayle/max-skill-trim/tree/custom-trims"));
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(0, 1));
+        panel.setBorder(new CompoundBorder(
                 BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(58, 58, 58)),
                 BorderFactory.createEmptyBorder(0, 0, 10, 0)));
 
-        layout.setHorizontalGroup(
-                layout.createParallelGroup().
-                        addComponent(buttonPanel).
-                        addComponent(comboBoxPanel)
-        );
+        panel.add(getMoreTrimsButton, BorderLayout.CENTER);
 
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addComponent(buttonPanel)
-                .addGap(10)
-                .addComponent(comboBoxPanel)
-        );
+        return panel;
+    }
+
+    private JPanel buildButtonPanel() {
+        JButton openMaxSkillTrimFileFolderButton = new JButton("Open Folder");
+        openMaxSkillTrimFileFolderButton.addActionListener((ev) -> {
+            try {
+                Desktop.getDesktop().open(MaxSkillTrimPlugin.MAXSKILLTRIMS_DIR);
+            } catch(Exception ex) {
+                log.warn(null, ex);
+            }
+        });
+
+        JButton refreshMaxSkillTrims = new JButton("Refresh");
+        refreshMaxSkillTrims.addActionListener((ev) -> {
+            refreshComboBoxOptions();
+        });
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(1, 1));
+
+        panel.add(openMaxSkillTrimFileFolderButton);
+        panel.add(refreshMaxSkillTrims);
+
+        return panel;
     }
 
     private void refreshComboBoxOptions() {
