@@ -5,7 +5,8 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
 @ConfigGroup(MaxSkillTrimConfig.GROUP_NAME)
-public interface MaxSkillTrimConfig extends Config {
+public interface MaxSkillTrimConfig extends Config
+{
     String GROUP_NAME = "maxskilltrim";
     String SELECTED_MAX_SKILL_TRIM = "selectedMaxSkillTrim";
 
