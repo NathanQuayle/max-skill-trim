@@ -67,6 +67,7 @@ public class MaxSkillTrimPlugin extends Plugin
         BufferedImage icon;
         synchronized (ImageIO.class)
         {
+            String path = new File(MAXSKILLTRIMS_DIR, maxSkillTrimConfig.selectedMaxSkillTrimFilename()).getPath();
             icon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/icon.png")));
             currentTrimImage = ImageIO.read(new File(MAXSKILLTRIMS_DIR, maxSkillTrimConfig.selectedMaxSkillTrimFilename()));
         }
@@ -100,23 +101,33 @@ public class MaxSkillTrimPlugin extends Plugin
         pluginToolbar.removeNavigation(navButton);
     }
 
-
     @Subscribe
     public void onConfigChanged(ConfigChanged event)
     {
-        if (event.getGroup().equals(MaxSkillTrimConfig.GROUP_NAME) && event.getKey().equals(MaxSkillTrimConfig.SELECTED_MAX_SKILL_TRIM))
+        if (event.getGroup().equals(MaxSkillTrimConfig.GROUP_NAME))
         {
-            try
-            {
-                synchronized (ImageIO.class)
-                {
-                    currentTrimImage = ImageIO.read(new File(MAXSKILLTRIMS_DIR, event.getNewValue()));
-                }
+            switch(event.getKey()) {
+                case MaxSkillTrimConfig.SELECTED_MAX_SKILL_TRIM:
+                    try
+                    {
+                        synchronized (ImageIO.class)
+                        {
+                            currentTrimImage = ImageIO.read(new File(MAXSKILLTRIMS_DIR, event.getNewValue()));
+                        }
+                    }
+                    catch (IOException ioException)
+                    {
+                        log.warn(null, ioException);
+                    }
+                    break;
+                case MaxSkillTrimConfig.SHOW_NAV_BUTTON:
+                    boolean showNavButton = Boolean.TRUE.toString().equals(event.getNewValue());
+
+                    if(showNavButton) pluginToolbar.addNavigation(navButton);
+                    if(!showNavButton) pluginToolbar.removeNavigation(navButton);
+                    break;
             }
-            catch (IOException ioException)
-            {
-                log.warn(null, ioException);
-            }
+
         }
     }
 
