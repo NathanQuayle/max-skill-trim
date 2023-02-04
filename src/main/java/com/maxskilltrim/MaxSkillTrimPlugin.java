@@ -67,7 +67,6 @@ public class MaxSkillTrimPlugin extends Plugin
         BufferedImage icon;
         synchronized (ImageIO.class)
         {
-            String path = new File(MAXSKILLTRIMS_DIR, maxSkillTrimConfig.selectedMaxSkillTrimFilename()).getPath();
             icon = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/icon.png")));
             currentTrimImage = ImageIO.read(new File(MAXSKILLTRIMS_DIR, maxSkillTrimConfig.selectedMaxSkillTrimFilename()));
         }
