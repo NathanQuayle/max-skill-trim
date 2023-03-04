@@ -135,12 +135,6 @@ public class MaxSkillTrimPlugin extends Plugin
         trims = new Widget[SkillData.values().length];
     }
 
-
-    /**
-     * Create the widgets needed for the bars to exist, and keep a reference to them
-     *
-     * @param parent The parent widget inside which the skill bar is created
-     */
     private void buildSkillBar(Widget parent) {
         int idx = WidgetInfo.TO_CHILD(parent.getId()) - 1;
         SkillData skill = SkillData.get(idx);
