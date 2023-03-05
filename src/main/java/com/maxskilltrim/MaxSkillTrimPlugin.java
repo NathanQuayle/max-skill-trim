@@ -89,8 +89,15 @@ public class MaxSkillTrimPlugin extends Plugin
         overrideSprites();
 
         if (client.getGameState() == GameState.LOGGED_IN) {
-            clientThread.invoke(this::buildSkillBars);
+            clientThread.invoke(this::buildTrimWidgetContainers);
         }
+    }
+
+    @Override
+    protected void shutDown() throws Exception
+    {
+        pluginToolbar.removeNavigation(navButton);
+        clientThread.invoke(this::removeTrimWidgetContainers);
     }
 
     @Subscribe
@@ -104,22 +111,22 @@ public class MaxSkillTrimPlugin extends Plugin
     @Subscribe
     public void onScriptPostFired(ScriptPostFired event) {
         if (event.getScriptId() == SCRIPTID_STATS_INIT && currentWidget != null) {
-            buildSkillBar(currentWidget);
+            buildTrim(currentWidget);
         }
     }
 
-    private void buildSkillBars() {
+    private void buildTrimWidgetContainers() {
         Widget skillsContainer = client.getWidget(WidgetInfo.SKILLS_CONTAINER);
         if (skillsContainer == null) {
             return;
         }
 
         for (Widget skillTile : skillsContainer.getStaticChildren()) {
-            buildSkillBar(skillTile);
+            buildTrim(skillTile);
         }
     }
 
-    private void removeSkillBars() {
+    private void removeTrimWidgetContainers() {
         for ( Widget trim : trims ) {
             if (trim == null) {
                 continue;
@@ -135,7 +142,7 @@ public class MaxSkillTrimPlugin extends Plugin
         trims = new Widget[SkillData.values().length];
     }
 
-    private void buildSkillBar(Widget parent) {
+    private void buildTrim(Widget parent) {
         int idx = WidgetInfo.TO_CHILD(parent.getId()) - 1;
         SkillData skill = SkillData.get(idx);
         if (skill == null) {
@@ -178,13 +185,6 @@ public class MaxSkillTrimPlugin extends Plugin
         {
             log.warn(null, e);
         }
-    }
-
-    @Override
-    protected void shutDown() throws Exception
-    {
-        pluginToolbar.removeNavigation(navButton);
-        clientThread.invoke(this::removeSkillBars);
     }
 
     @Subscribe
