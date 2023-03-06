@@ -20,11 +20,6 @@ The purpose of this branch is to allow people to submit / download custom trims.
 4. Update the screenshots table below with your new icon and link to client useable trim.
 5. Create a PR to merge your icon in.
 
-<div style="display: grid; grid-template-columns: repeat(8, 1fr);">
-     <a href="custom-trims/XAHBvv/trim.png"">
-          <img src="custom-trims/XAHBvv/example.png"/>
-     </a>
-     <a href="custom-trims/PpNLGq/trim.png">
-          <img src="custom-trims/PpNLGq/example.png"/>
-     </a>
-</div>
+[![Example of trim](custom-trims/XAHBvv/example.png)](custom-trims/XAHBvv/trim.png)
+
+[![Example of trim](custom-trims/PpNLGq/example.png)](custom-trims/PpNLGq/trim.png)
