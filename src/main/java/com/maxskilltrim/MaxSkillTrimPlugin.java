@@ -216,9 +216,11 @@ public class MaxSkillTrimPlugin extends Plugin
         }
         try
         {
-            BufferedImage image = ImageIO.read(spriteFile);
-
-            return ImageUtil.getImageSpritePixels(image, client);
+            synchronized (ImageIO.class)
+            {
+                BufferedImage image = ImageIO.read(spriteFile);
+                return ImageUtil.getImageSpritePixels(image, client);
+            }
         }
         catch (RuntimeException | IOException ex)
         {
