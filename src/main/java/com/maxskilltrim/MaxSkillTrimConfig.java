@@ -8,16 +8,44 @@ import net.runelite.client.config.ConfigItem;
 public interface MaxSkillTrimConfig extends Config
 {
     String GROUP_NAME = "maxskilltrim";
-    String SELECTED_MAX_SKILL_TRIM = "selectedMaxSkillTrim";
+    String SHOW_MAX_LEVEL_TRIM = "showMaxLevelTrim";
+    String SELECTED_MAX_LEVEL_TRIM = "selectedMaxLevelTrim";
+    String SHOW_MAX_EXPERIENCE_TRIM = "showMaxExperienceTrim";
+    String SELECTED_MAX_EXPERIENCE_TRIM = "selectedMaxExperienceTrim";
     String SHOW_NAV_BUTTON = "showNavButton";
 
     @ConfigItem(
-            keyName = SELECTED_MAX_SKILL_TRIM,
+            keyName = SHOW_MAX_LEVEL_TRIM,
+            name = "Show trims on level 99 skills?",
+            description = "Toggles whether or not show skill trims on level 99 skills."
+    )
+    default boolean showMaxLevelTrim() { return true; }
+
+    @ConfigItem(
+            keyName = SELECTED_MAX_LEVEL_TRIM,
             name = "Selected max skill trim",
             description = "Name of the selected max skill trim",
             hidden = true
     )
-    default String selectedMaxSkillTrimFilename()
+    default String selectedMaxLevelTrimFilename()
+    {
+        return "full-trim.png";
+    }
+
+    @ConfigItem(
+            keyName = SHOW_MAX_EXPERIENCE_TRIM,
+            name = "Show trims on 200m skills?",
+            description = "Toggles whether or not show skill trims on 200m skills.r"
+    )
+    default boolean showMaxExperienceTrim() { return true; }
+
+    @ConfigItem(
+            keyName = SELECTED_MAX_EXPERIENCE_TRIM,
+            name = "Selected max skill trim",
+            description = "Name of the selected max skill trim",
+            hidden = true
+    )
+    default String selectedMaxExperienceTrimFilename()
     {
         return "full-trim.png";
     }
