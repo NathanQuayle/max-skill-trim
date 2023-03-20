@@ -173,7 +173,7 @@ public class MaxSkillTrimPlugin extends Plugin
 
     private void updateTrim(SkillData skill, Widget widget, Trim trim) {
         final int currentXP = client.getSkillExperience(skill.getSkill());
-        final boolean isMaxExperience =  currentXP >= Experience.MAX_SKILL_XP;
+        final boolean isMaxExperience =  currentXP >= 6100000;
         final int currentLevel = Experience.getLevelForXp(currentXP);
 
         switch(trim.trimType) {
@@ -194,10 +194,15 @@ public class MaxSkillTrimPlugin extends Plugin
         }
     }
 
-    void updateTrims(Widget[] widgets, Trim trim) {
-        for(int i = 0; i < widgets.length; i++) {
-            updateTrim(SkillData.get(i), widgets[i], trim);
+    void updateTrims() {
+        for(int i = 0; i < maxLevelTrimWidgets.length; i++) {
+            updateTrim(SkillData.get(i), maxLevelTrimWidgets[i], maxLevelTrim);
         }
+
+        for(int i = 0; i < maxExperienceTrimWidgets.length; i++) {
+            updateTrim(SkillData.get(i), maxExperienceTrimWidgets[i], maxExperienceTrim);
+        }
+
     }
 
     private void addDefaultTrims()
@@ -221,14 +226,12 @@ public class MaxSkillTrimPlugin extends Plugin
                 case MaxSkillTrimConfig.SELECTED_MAX_LEVEL_TRIM:
                     overrideSprites(maxLevelTrim, event.getNewValue());
                     break;
-                case MaxSkillTrimConfig.SHOW_MAX_LEVEL_TRIM:
-                    clientThread.invokeLater(() -> updateTrims(maxLevelTrimWidgets, maxLevelTrim));
-                    break;
                 case MaxSkillTrimConfig.SELECTED_MAX_EXPERIENCE_TRIM:
                     overrideSprites(maxExperienceTrim, event.getNewValue());
                     break;
                 case MaxSkillTrimConfig.SHOW_MAX_EXPERIENCE_TRIM:
-                    clientThread.invokeLater(() -> updateTrims(maxExperienceTrimWidgets, maxExperienceTrim));
+                case MaxSkillTrimConfig.SHOW_MAX_LEVEL_TRIM:
+                    clientThread.invokeLater(this::updateTrims);
                     break;
                 case MaxSkillTrimConfig.SHOW_NAV_BUTTON:
                     boolean showNavButton = Boolean.TRUE.toString().equals(event.getNewValue());

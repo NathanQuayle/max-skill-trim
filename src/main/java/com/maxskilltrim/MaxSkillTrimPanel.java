@@ -35,7 +35,7 @@ public class MaxSkillTrimPanel extends PluginPanel
         JComboBox<String> maxLevelComboBox = buildComboBoxPanel(MaxSkillTrimConfig.SELECTED_MAX_LEVEL_TRIM, config.getSelectedMaxLevelTrimFilename());
         JComboBox<String> maxExperienceComboBox = buildComboBoxPanel(MaxSkillTrimConfig.SELECTED_MAX_EXPERIENCE_TRIM, config.getSelectedMaxExperienceTrimFilename());
 
-        JButton openFolderButton = new JButton("Open sFolder");
+        JButton openFolderButton = new JButton("Open Folder");
         openFolderButton.addActionListener(e ->
         {
             try
