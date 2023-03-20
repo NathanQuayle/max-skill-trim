@@ -27,7 +27,7 @@ public interface MaxSkillTrimConfig extends Config
             description = "Name of the selected max skill trim",
             hidden = true
     )
-    default String selectedMaxLevelTrimFilename()
+    default String getSelectedMaxLevelTrimFilename()
     {
         return "full-trim.png";
     }
@@ -37,7 +37,7 @@ public interface MaxSkillTrimConfig extends Config
             name = "Show trims on 200m skills?",
             description = "Toggles whether or not show skill trims on 200m skills.r"
     )
-    default boolean showMaxExperienceTrim() { return true; }
+    default boolean getShowMaxExperienceTrim() { return true; }
 
     @ConfigItem(
             keyName = SELECTED_MAX_EXPERIENCE_TRIM,
@@ -45,7 +45,7 @@ public interface MaxSkillTrimConfig extends Config
             description = "Name of the selected max skill trim",
             hidden = true
     )
-    default String selectedMaxExperienceTrimFilename()
+    default String getSelectedMaxExperienceTrimFilename()
     {
         return "full-trim.png";
     }
@@ -55,5 +55,5 @@ public interface MaxSkillTrimConfig extends Config
             name = "Show navigation button in sidebar?",
             description = "Toggles whether or not show the navigation button (icon) in the Runelite sidebar"
     )
-    default boolean showNavButton() { return true; }
+    default boolean getShowNavButton() { return true; }
 }

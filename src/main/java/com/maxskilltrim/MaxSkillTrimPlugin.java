@@ -82,8 +82,8 @@ public class MaxSkillTrimPlugin extends Plugin
 
         pluginToolbar.addNavigation(navButton);
 
-        overrideSprites(maxLevelTrim, maxSkillTrimConfig.selectedMaxLevelTrimFilename());
-        overrideSprites(maxExperienceTrim, maxSkillTrimConfig.selectedMaxExperienceTrimFilename());
+        overrideSprites(maxLevelTrim, maxSkillTrimConfig.getSelectedMaxLevelTrimFilename());
+        overrideSprites(maxExperienceTrim, maxSkillTrimConfig.getSelectedMaxExperienceTrimFilename());
 
         if (client.getGameState() == GameState.LOGGED_IN) {
             clientThread.invoke(this::buildTrimWidgetContainers);
@@ -178,14 +178,14 @@ public class MaxSkillTrimPlugin extends Plugin
 
         switch(trim.trimType) {
             case MAX_LEVEL:
-                if(!maxSkillTrimConfig.showMaxLevelTrim() || (isMaxExperience && maxSkillTrimConfig.showMaxExperienceTrim())) {
+                if(!maxSkillTrimConfig.showMaxLevelTrim() || (isMaxExperience && maxSkillTrimConfig.getShowMaxExperienceTrim())) {
                     widget.setOpacity(255);
                 } else if(currentLevel >= Experience.MAX_REAL_LEVEL) {
                     widget.setOpacity(0);
                 }
                 break;
             case MAX_EXPERIENCE:
-                if(!maxSkillTrimConfig.showMaxExperienceTrim()) {
+                if(!maxSkillTrimConfig.getShowMaxExperienceTrim()) {
                     widget.setOpacity(255);
                 } else if(isMaxExperience) {
                     widget.setOpacity(0);
