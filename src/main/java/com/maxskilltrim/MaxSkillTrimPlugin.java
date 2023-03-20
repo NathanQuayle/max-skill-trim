@@ -173,7 +173,7 @@ public class MaxSkillTrimPlugin extends Plugin
 
     private void updateTrim(SkillData skill, Widget widget, Trim trim) {
         final int currentXP = client.getSkillExperience(skill.getSkill());
-        final boolean isMaxExperience =  currentXP >= 6100000;
+        final boolean isMaxExperience =  currentXP >= Experience.MAX_SKILL_XP;
         final int currentLevel = Experience.getLevelForXp(currentXP);
 
         switch(trim.trimType) {
