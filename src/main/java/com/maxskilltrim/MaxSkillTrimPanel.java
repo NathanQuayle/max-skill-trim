@@ -9,8 +9,6 @@ import net.runelite.client.util.LinkBrowser;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.swing.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.io.File;
@@ -26,83 +24,19 @@ public class MaxSkillTrimPanel extends PluginPanel
     @Inject
     public MaxSkillTrimPanel(MaxSkillTrimConfig config)
     {
-        GroupLayout layout = new GroupLayout(this);
-        setLayout(layout);
-        setBorder(new EmptyBorder(10, 10, 10, 10));
-        setBackground(ColorScheme.DARK_GRAY_COLOR);
+        JPanel container = new JPanel();
+        container.setBackground(ColorScheme.DARK_GRAY_COLOR);
+        GridBagLayout layout = new GridBagLayout();
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.anchor = GridBagConstraints.LINE_START;
+        constraints.insets = new Insets(3, 3, 3, 3);
+        container.setLayout(layout);
 
         JComboBox<String> maxLevelComboBox = buildComboBoxPanel(MaxSkillTrimConfig.SELECTED_MAX_LEVEL_TRIM, config.getSelectedMaxLevelTrimFilename());
-        JPanel maxLevelComboBoxPanel = new JPanel();
-        maxLevelComboBoxPanel.add( new JLabel("Max level trim"), GroupLayout.Alignment.BASELINE);
-        maxLevelComboBoxPanel.add(maxLevelComboBox, GroupLayout.Alignment.BASELINE);
-
         JComboBox<String> maxExperienceComboBox = buildComboBoxPanel(MaxSkillTrimConfig.SELECTED_MAX_EXPERIENCE_TRIM, config.getSelectedMaxExperienceTrimFilename());
-        JPanel maxExperienceComboBoxPanel = new JPanel();
-        maxExperienceComboBoxPanel.add( new JLabel("Max experience trim"), GroupLayout.Alignment.BASELINE);
-        maxExperienceComboBoxPanel.add(maxExperienceComboBox, GroupLayout.Alignment.BASELINE);
 
-        JPanel buttonPanel = buildButtonPanel(maxLevelComboBox, maxExperienceComboBox);
-        JPanel getMoreTrimsPanel = buildGetMoreTrimsPanel();
-
-        layout.setHorizontalGroup(
-                layout.createParallelGroup()
-                        .addComponent(buttonPanel)
-                        .addComponent(getMoreTrimsPanel)
-                        .addComponent(maxLevelComboBoxPanel)
-                        .addComponent(maxExperienceComboBoxPanel)
-        );
-
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addComponent(buttonPanel)
-                .addGap(10)
-                .addComponent(getMoreTrimsPanel)
-                .addGap(10)
-                .addComponent(maxLevelComboBoxPanel)
-                .addGap(10)
-                .addComponent(maxExperienceComboBoxPanel)
-        );
-    }
-
-    private JComboBox<String> buildComboBoxPanel(String selectedTrimConfigKey, String selectedFilename) {
-        JComboBox<String> comboBox = new JComboBox<>();
-
-        refreshComboBoxOptions(comboBox);
-
-        comboBox.addItemListener((e) -> comboBoxEventHandler(e, selectedTrimConfigKey));
-
-        comboBox.setSelectedItem(selectedFilename);
-
-        return comboBox;
-    }
-
-    private void comboBoxEventHandler(ItemEvent e, String selectedTrimConfigKey)
-    {
-        if (e.getStateChange() == ItemEvent.SELECTED && configManager != null)
-        {
-            configManager.setConfiguration(MaxSkillTrimConfig.GROUP_NAME, selectedTrimConfigKey, e.getItem());
-        }
-    }
-
-    private JPanel buildGetMoreTrimsPanel()
-    {
-        JButton getMoreTrimsButton = new JButton("Get more trims!");
-        getMoreTrimsButton.addActionListener((ev) -> LinkBrowser.browse("https://github.com/NathanQuayle/max-skill-trim/tree/custom-trims"));
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(0, 1));
-        panel.setBorder(new CompoundBorder(
-                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(58, 58, 58)),
-                BorderFactory.createEmptyBorder(0, 0, 10, 0)));
-
-        panel.add(getMoreTrimsButton, BorderLayout.CENTER);
-
-        return panel;
-    }
-
-    private JPanel buildButtonPanel(JComboBox<String> maxLevelComboBox, JComboBox<String> maxExperienceComboBox)
-    {
-        JButton openMaxSkillTrimFileFolderButton = new JButton("Open Folder");
-        openMaxSkillTrimFileFolderButton.addActionListener((ev) ->
+        JButton openFolderButton = new JButton("Open sFolder");
+        openFolderButton.addActionListener(e ->
         {
             try
             {
@@ -113,20 +47,71 @@ public class MaxSkillTrimPanel extends PluginPanel
                 log.warn(null, ex);
             }
         });
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        container.add(openFolderButton, constraints);
 
-        JButton refreshMaxSkillTrims = new JButton("Refresh");
-        refreshMaxSkillTrims.addActionListener((ev) -> {
+        JButton refreshButton = new JButton("Refresh");
+        refreshButton.addActionListener((ev) -> {
             refreshComboBoxOptions(maxLevelComboBox);
             refreshComboBoxOptions(maxExperienceComboBox);
         });
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        container.add(refreshButton, constraints);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1, 1));
+        JButton getMoreTrimsButton = new JButton("Get more trims!");
+        getMoreTrimsButton.addActionListener((e) -> LinkBrowser.browse("https://github.com/NathanQuayle/max-skill-trim/tree/custom-trims"));
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        container.add(getMoreTrimsButton, constraints);
 
-        panel.add(openMaxSkillTrimFileFolderButton);
-        panel.add(refreshMaxSkillTrims);
+        JLabel maxLevelTrimLabel = new JLabel("Max level trim");
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        container.add(maxLevelTrimLabel, constraints);
 
-        return panel;
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        container.add(maxLevelComboBox, constraints);
+
+        JLabel maxExperienceTrimLabel = new JLabel("Max experience trim");
+        constraints.gridx = 0;
+        constraints.gridy = 4;
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        container.add(maxExperienceTrimLabel, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 5;
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        container.add(maxExperienceComboBox, constraints);
+
+        add(container);
+    }
+
+    private JComboBox<String> buildComboBoxPanel(String selectedTrimConfigKey, String selectedFilename) {
+        JComboBox<String> comboBox = new JComboBox<>();
+
+        refreshComboBoxOptions(comboBox);
+
+        comboBox.addItemListener((e) -> {
+            if (e.getStateChange() == ItemEvent.SELECTED && configManager != null)
+            {
+                configManager.setConfiguration(MaxSkillTrimConfig.GROUP_NAME, selectedTrimConfigKey, e.getItem());
+            }
+        });
+
+        comboBox.setSelectedItem(selectedFilename);
+
+        return comboBox;
     }
 
     private void refreshComboBoxOptions(JComboBox<String> comboBox)
