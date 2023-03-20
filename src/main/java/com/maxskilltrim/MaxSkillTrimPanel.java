@@ -100,6 +100,9 @@ public class MaxSkillTrimPanel extends PluginPanel
     private JComboBox<String> buildComboBoxPanel(String selectedTrimConfigKey, String selectedFilename) {
         JComboBox<String> comboBox = new JComboBox<>();
 
+        // Forces long item names to not cause the JPanel to overflow.
+        comboBox.setPrototypeDisplayValue("");
+
         refreshComboBoxOptions(comboBox);
 
         comboBox.addItemListener((e) -> {
