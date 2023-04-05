@@ -80,7 +80,9 @@ public class MaxSkillTrimPlugin extends Plugin
                 .panel(maxSkillTrimPanel)
                 .build();
 
-        pluginToolbar.addNavigation(navButton);
+        if(maxSkillTrimConfig.getShowNavButton()) {
+            pluginToolbar.addNavigation(navButton);
+        }
 
         overrideSprites(maxLevelTrim, maxSkillTrimConfig.getSelectedMaxLevelTrimFilename());
         overrideSprites(maxExperienceTrim, maxSkillTrimConfig.getSelectedMaxExperienceTrimFilename());
