@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import exampleSkillsImage from './Untitled.png'
+import exampleSkillsImage from './example-skills.png'
 
 type Props = {
   file: string
