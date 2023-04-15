@@ -7,65 +7,53 @@ All Trims can be browsed at NathanQuayle's deticated website [here](https://nath
 ---
 
 ## Solids
-![](Solid/white/white.png)
-![](Solid/black/black.png)
-![](Solid/darkgrey/darkgrey.png)
-![](Solid/lightgrey/lightgray.png)
-![](Solid/darkbrown/darkbrown.png)
-![](Solid/mahogany/mahogany.png)
-![](Solid/darkred/darkred.png)
-![](Solid/crimsonred/crimsonred.png)
-![](Solid/red/red.png)
-![](Solid/orange/orange.png)
-![](Solid/peach/peach.png)
-![](Solid/rosepink/rosepink.png)
-![](Solid/yellow/yellow.png)
-![](Solid/green/green.png)
-![](Solid/aqua/aqua.png)
-![](Solid/limegreen/limegreen.png)
-![](Solid/kiwigreen/kiwigreen.png)
-![](Solid/darkgreen/darkgreen.png)
-![](Solid/ultramarineblue/ultramarineblue.png)
-![](Solid/blue/blue.png)
-![](Solid/teal/teal.png)
-![](Solid/skyblue/skyblue.png)
-![](Solid/arcticblue/arcticblue.png)
-![](Solid/lightviolet/lightviolet.png)
-![](Solid/indigo/indigo.png)
-![](Solid/purple/purple.png)
-![](Solid/violet/violet.png)
-![](Solid/magenta/magenta.png)
-![](Solid/pink/pink.png)
-![](Solid/darkmagenta/darkmagenta.png)
-
----
-
-## Alternating
-![](Alternating/purple-white-striped-less/purple-white-striped-less.png)
-![](Alternating/purple-white-striped/purple-white-striped.png)
-
----
-
-## Fun
-![](Fun/purple-pink-cascading/purple-pink-cascading.png)
-![](Fun/purple-pink-zipper-spaced/purple-pink-zipper-spaced.png)
-
----
-
-## Gradient-Diagonal
-![](Gradient-Diagonal/iridescent-peach-teal-violet-d/iridescent-peach-teal-violet-d.png)
+![white](Solid/white/white.png)
+![black](Solid/black/black.png)
+![darkgrey](Solid/darkgrey/darkgrey.png)
+![lightgray](Solid/lightgrey/lightgray.png)
+![darkbrown](Solid/darkbrown/darkbrown.png)
+![mahogany](Solid/mahogany/mahogany.png)
+![darkred](Solid/darkred/darkred.png)
+![crimsonred](Solid/crimsonred/crimsonred.png)
+![red](Solid/red/red.png)
+![orange](Solid/orange/orange.png)
+![peach](Solid/peach/peach.png)
+![rosepink](Solid/rosepink/rosepink.png)
+![yellow](Solid/yellow/yellow.png)
+![green](Solid/green/green.png)
+![aqua](Solid/aqua/aqua.png)
+![limegreen](Solid/limegreen/limegreen.png)
+![kiwigreen](Solid/kiwigreen/kiwigreen.png)
+![darkgreen](Solid/darkgreen/darkgreen.png)
+![ultramarineblue](Solid/ultramarineblue/ultramarineblue.png)
+![blue](Solid/blue/blue.png)
+![teal](Solid/teal/teal.png)
+![skyblue](Solid/skyblue/skyblue.png)
+![arcticblue](Solid/arcticblue/arcticblue.png)
+![lightviolet](Solid/lightviolet/lightviolet.png)
+![indigo](Solid/indigo/indigo.png)
+![purple](Solid/purple/purple.png)
+![violet](Solid/violet/violet.png)
+![magenta](Solid/magenta/magenta.png)
+![pink](Solid/pink/pink.png)
+![darkmagenta](Solid/darkmagenta/darkmagenta.png)
 
 ---
 
 ## Gradient-Horizontal
-![](Gradient-Horizontal/black-white-h/black-white-h.png)
-![](Gradient-Horizontal/blue-teal-h/blue-teal-h.png)
-![](Gradient-Horizontal/green-teal-h/green-teal-h.png)
-![](Gradient-Horizontal/iridescent-teal-violet-h/iridescent-teal-violet-h.png)
-![](Gradient-Horizontal/pink-teal-yellow-h/pink-teal-yellow-h.png)
-![](Gradient-Horizontal/purple-pink-purple-h/purple-pink-purple-h.png)
-![](Gradient-Horizontal/redpink-purple-h/redpink-purple-h.png)
-![](Gradient-Horizontal/yellow-green-h/yellow-green-h.png)
+![black-white-h](Gradient-Horizontal/black-white-h/black-white-h.png)
+![blue-teal-h](Gradient-Horizontal/blue-teal-h/blue-teal-h.png)
+![green-teal-h](Gradient-Horizontal/green-teal-h/green-teal-h.png)
+![iridescent-teal-violet-h](Gradient-Horizontal/iridescent-teal-violet-h/iridescent-teal-violet-h.png)
+![pink-teal-yellow-h](Gradient-Horizontal/pink-teal-yellow-h/pink-teal-yellow-h.png)
+![purple-pink-purple-h](Gradient-Horizontal/purple-pink-purple-h/purple-pink-purple-h.png)
+![redpink-purple-h](Gradient-Horizontal/redpink-purple-h/redpink-purple-h.png)
+![yellow-green-h](Gradient-Horizontal/yellow-green-h/yellow-green-h.png)
+
+---
+
+## Gradient-Diagonal
+![iridescent-peach-teal-violet-d](Gradient-Diagonal/iridescent-peach-teal-violet-d/iridescent-peach-teal-violet-d.png)
 
 ---
 
@@ -77,8 +65,20 @@ Placeholder
 
 ---
 
+## Alternating
+![purple-white-striped](Alternating/purple-white-striped/purple-white-striped.png)
+![purple-white-striped-less](Alternating/purple-white-striped-less/purple-white-striped-less.png)
+
+---
+
+## Fun
+![purple-pink-cascading](Fun/purple-pink-cascading/purple-pink-cascading.png)
+![purple-pink-zipper-spaced](Fun/purple-pink-zipper-spaced/purple-pink-zipper-spaced.png)
+
+---
+
 ## Splotched
-![](Splotched/red-yellow-splotched/red-yellow-splotched.png)
+![red-yellow-splotched](Splotched/red-yellow-splotched/red-yellow-splotched.png)
 
 ---
 
