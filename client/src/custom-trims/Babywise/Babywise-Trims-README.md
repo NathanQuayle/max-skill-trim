@@ -1,7 +1,7 @@
 
 # Babywise Trims
 This is a portal to all available trims by Babywise.\
-Feel free to click on any trim to be directed to the file for download
+Feel free to click on any trim to be directed to the file for download.\
 All Trims can be browsed at NathanQuayle's deticated website [here](https://nathanquayle.github.io/max-skill-trim/)
 
 ---
