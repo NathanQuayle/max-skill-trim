@@ -1,4 +1,11 @@
 
+# Babywise Trims
+This is a portal to all available trims by Babywise.\
+Feel free to click on any trim to be directed to the file for download
+All Trims can be browsed at NathanQuayle's deticated website [here](https://nathanquayle.github.io/max-skill-trim/)
+
+---
+
 ## Solids
 ![](Solid/white/white.png)
 ![](Solid/black/black.png)
@@ -31,16 +38,25 @@
 ![](Solid/pink/pink.png)
 ![](Solid/darkmagenta/darkmagenta.png)
 
+---
+
 ## Alternating
 ![](Alternating/purple-white-striped-less/purple-white-striped-less.png)
 ![](Alternating/purple-white-striped/purple-white-striped.png)
+
+---
 
 ## Fun
 ![](Fun/purple-pink-cascading/purple-pink-cascading.png)
 ![](Fun/purple-pink-zipper-spaced/purple-pink-zipper-spaced.png)
 
+---
+
 ## Gradient-Diagonal
 ![](Gradient-Diagonal/iridescent-peach-teal-violet-d/iridescent-peach-teal-violet-d.png)
+
+---
+
 ## Gradient-Horizontal
 ![](Gradient-Horizontal/black-white-h/black-white-h.png)
 ![](Gradient-Horizontal/blue-teal-h/blue-teal-h.png)
@@ -50,9 +66,21 @@
 ![](Gradient-Horizontal/purple-pink-purple-h/purple-pink-purple-h.png)
 ![](Gradient-Horizontal/redpink-purple-h/redpink-purple-h.png)
 ![](Gradient-Horizontal/yellow-green-h/yellow-green-h.png)
+
+---
+
 ## Gradient-Vertical
+
+---
+
+Placeholder
+
+---
 
 ## Splotched
 ![](Splotched/red-yellow-splotched/red-yellow-splotched.png)
+
+---
+
 
 
